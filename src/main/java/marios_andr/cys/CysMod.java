@@ -36,10 +36,8 @@ public class CysMod {
 
     public static final DeferredRegister.Entities ENTITIES = DeferredRegister.createEntities(MODID);
 
-    private static final EntityType.EntityFactory<ZombifiedPlayer> ZOMBIFIED_PLAYER_FACTORY =
-            (entityType, level) -> (ZombifiedPlayer)(level instanceof ClientLevel ? new ClientZombifiedPlayer(level, Minecraft.getInstance().playerSkinRenderCache()) : new ZombifiedPlayer(entityType, level));
     public static final Supplier<EntityType<ZombifiedPlayer>> ZOMBIFIED_PLAYER = ENTITIES.registerEntityType("zombified_player",
-            ZOMBIFIED_PLAYER_FACTORY,
+            ZombifiedPlayer::create,
             MobCategory.MISC,
             builder -> builder
                     .sized(0.6F, 1.95F)
@@ -64,39 +62,7 @@ public class CysMod {
 
     }
 
-    public void onServerStarting(ServerStartingEvent event) {
-        // Do something when the server starts
-    }
-
     public void createDefaultAttributes(EntityAttributeCreationEvent e) {
         e.put(ZOMBIFIED_PLAYER.get(), ZombifiedPlayer.createAttributes().build());
-    }
-
-    //@SubscribeEvent
-    public void onPlayerDrops(LivingDropsEvent e) {
-        if (e.getEntity() instanceof Player) {
-            boolean isPeaceful = e.getEntity().level().getDifficulty().equals(Difficulty.PEACEFUL);
-            boolean flag = Config.isEnabled && (!isPeaceful || Config.isPeacefulEnabled);
-            if (!flag)
-                return;
-
-
-
-            e.getDrops().clear();
-        }
-    }
-
-    //@SubscribeEvent
-    public void onPlayerExperienceDrops(LivingExperienceDropEvent e) {
-        if (e.getEntity() instanceof Player) {
-            boolean isPeaceful = e.getEntity().level().getDifficulty().equals(Difficulty.PEACEFUL);
-            boolean flag = Config.isEnabled && (!isPeaceful || Config.isPeacefulEnabled);
-            if (!flag)
-                return;
-
-
-
-
-        }
     }
 }

@@ -1,4 +1,4 @@
-package marios_andr.cys;
+package marios_andr.cys.render;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.model.AnimationUtils;
@@ -6,7 +6,7 @@ import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.world.entity.HumanoidArm;
 
-public class ZombifiedPlayerModel extends HumanoidModel<ZombifiedPlayerRenderer.ZombifiedPlayerRenderState> {
+public class ZombifiedPlayerModel extends HumanoidModel<ZombifiedPlayerRenderState> {
     public final ModelPart leftSleeve;
     public final ModelPart rightSleeve;
     public final ModelPart leftPants;
@@ -24,7 +24,7 @@ public class ZombifiedPlayerModel extends HumanoidModel<ZombifiedPlayerRenderer.
         this.jacket = this.body.getChild("jacket");
     }
 
-    public void setupAnim(ZombifiedPlayerRenderer.ZombifiedPlayerRenderState state) {
+    public void setupAnim(ZombifiedPlayerRenderState state) {
         this.hat.visible = state.showHat;
         this.jacket.visible = state.showJacket;
         this.leftPants.visible = state.showLeftPants;
@@ -35,7 +35,7 @@ public class ZombifiedPlayerModel extends HumanoidModel<ZombifiedPlayerRenderer.
         AnimationUtils.animateZombieArms(this.leftArm, this.rightArm, state.isAggressive, state);
     }
 
-    public void translateToHand(ZombifiedPlayerRenderer.ZombifiedPlayerRenderState state, HumanoidArm arm, PoseStack poseStack) {
+    public void translateToHand(ZombifiedPlayerRenderState state, HumanoidArm arm, PoseStack poseStack) {
         this.root().translateAndRotate(poseStack);
         ModelPart part = this.getArm(arm);
         if (this.slim) {

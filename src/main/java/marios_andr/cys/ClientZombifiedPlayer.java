@@ -2,6 +2,7 @@ package marios_andr.cys;
 
 import net.minecraft.client.entity.ClientAvatarEntity;
 import net.minecraft.client.entity.ClientAvatarState;
+import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.renderer.PlayerSkinRenderCache;
 import net.minecraft.client.resources.DefaultPlayerSkin;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -21,6 +22,10 @@ public class ClientZombifiedPlayer extends ZombifiedPlayer implements ClientAvat
     private @Nullable CompletableFuture<Optional<PlayerSkin>> skinLookup;
     private PlayerSkin skin = DEFAULT_SKIN;
     private final PlayerSkinRenderCache skinRenderCache;
+
+    public static void registerOverrides(PlayerSkinRenderCache cache) {
+        ZombifiedPlayer.constructor = (type, level) -> (ZombifiedPlayer)(level instanceof ClientLevel ? new ClientZombifiedPlayer(level, cache) : new ZombifiedPlayer(type, level));
+    }
 
     public ClientZombifiedPlayer(Level level, PlayerSkinRenderCache skinRenderCache) {
         super(level);

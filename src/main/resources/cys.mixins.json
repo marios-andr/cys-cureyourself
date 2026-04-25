@@ -7,10 +7,10 @@
     "ServerPlayerMixin"
   ],
   "client": [
-    "EntityRenderDispatcherMixin"
+    "EntityRenderDispatcherMixin",
+    "MinecraftMixin"
   ],
   "server": [
-
   ],
   "injectors": {
     "defaultRequire": 1

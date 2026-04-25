@@ -36,6 +36,8 @@ neoForge {
         client {
             client()
 
+            //devLogin = true
+
             // Comma-separated list of namespaces to load gametests from. Empty = all namespaces.
             systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
             jvmArgument("-Dmixin.debug=true")
@@ -43,7 +45,7 @@ neoForge {
 
         server {
             server()
-            programArgument '--nogui'
+            //programArgument '--nogui'
             systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
             jvmArgument("-Dmixin.debug=true")
         }

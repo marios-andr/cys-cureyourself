@@ -1,15 +1,13 @@
 package marios_andr.cys.mixin;
 
 import marios_andr.cys.ClientZombifiedPlayer;
-import marios_andr.cys.CysModClient;
-import marios_andr.cys.ZombifiedPlayerRenderer;
+import marios_andr.cys.render.ZombifiedPlayerRenderState;
+import marios_andr.cys.render.ZombifiedPlayerRenderer;
 import net.minecraft.client.renderer.entity.EntityRenderDispatcher;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
-import net.minecraft.client.renderer.entity.player.AvatarRenderer;
 import net.minecraft.client.renderer.entity.state.EntityRenderState;
 import net.minecraft.server.packs.resources.ResourceManager;
-import net.minecraft.world.entity.Avatar;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.PlayerModelType;
 import org.spongepowered.asm.mixin.Mixin;
@@ -39,7 +37,7 @@ public class EntityRenderDispatcherMixin { //TODO Must work with slim skins
 
     @Inject(at = @At("HEAD"), method = "getRenderer(Lnet/minecraft/client/renderer/entity/state/EntityRenderState;)Lnet/minecraft/client/renderer/entity/EntityRenderer;", cancellable = true)
     private <S extends EntityRenderState> void getRenderer2(S entityRenderState, CallbackInfoReturnable<EntityRenderer<?, ? super S>> cir) {
-        if (entityRenderState instanceof ZombifiedPlayerRenderer.ZombifiedPlayerRenderState state) {
+        if (entityRenderState instanceof ZombifiedPlayerRenderState state) {
             PlayerModelType model = state.skin.model();
             EntityRenderer<?, ? super S> playerRenderer = (EntityRenderer<?, ? super S>) zp_renderer.get(model);
             EntityRenderer<?, ? super S> return_renderer = (playerRenderer != null ? playerRenderer : (EntityRenderer<?, ? super S>) zp_renderer.get(PlayerModelType.WIDE));
