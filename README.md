@@ -1,7 +1,7 @@
 # CYS — Cure Your Self
 
 [![CurseForge](https://img.shields.io/curseforge/dt/1525646?logo=curseforge&label=CurseForge&color=F16436)](https://www.curseforge.com/minecraft/mc-mods/cys-cure-your-self)
-[![Minecraft](https://img.shields.io/badge/Minecraft-1.21.1-62b47a)](https://www.minecraft.net/)
+[![Minecraft](https://img.shields.io/badge/Minecraft-26.1.2-62b47a)](https://www.minecraft.net/)
 [![NeoForge](https://img.shields.io/badge/NeoForge-26.1.2.11--beta-orange)](https://neoforged.net/)
 [![License](https://img.shields.io/badge/License-All%20Rights%20Reserved-red)]()
 
@@ -60,16 +60,6 @@ CYS uses NeoForge's built-in config system. You can toggle:
 The mod has not been tested alongside other mods that affect death behaviour or extend the player inventory, such as other gravestone/corpse mods or inventory mods like **Curios**. These may cause conflicts.
 
 Compatibility issues can be reported in the [Issues tab](https://github.com/marios-andr/cys-cureyourself/issues) and will be addressed as time allows.
-
----
-
-## Requirements
-
-| Requirement | Version |
-|-------------|---------|
-| Minecraft | 1.21.1 |
-| NeoForge | 26.1.2.11-beta or later |
-| Java | 21+ |
 
 ---
 
