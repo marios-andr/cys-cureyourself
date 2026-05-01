@@ -1,0 +1,13 @@
+{
+  "cys.configuration.isEnabled": "Is Enabled",
+  "cys.configuration.isPeacefulEnabled": "Is Peaceful Enabled",
+  "cys.configuration.canHardcoreCure": "Can Hardcore Cure",
+  "cys.configuration.zombieImmunity": "Zombie Immunity",
+  "cys.configuration.zombieExperienceOptions": "Zombie Experience Options",
+
+  "cys.configuration.isEnabled.desc": "Generic mod switch. Controls whether the zombie should spawn on player death.",
+  "cys.configuration.isPeacefulEnabled.desc": "Whether the zombie should spawn in peaceful mode. If enabled, the zombie will not attack the player. Superseded by isEnabled.",
+  "cys.configuration.canHardcoreCure.desc": "Whether the zombie can be cured to bring back a dead hardcore player.",
+  "cys.configuration.zombieImmunity.desc": "Whether or not the zombie is immune to all non-player sources of damage, such as lava, drowning or other mobs.",
+  "cys.configuration.zombieExperienceOptions.desc": "How the player's experience should be handled when they die.\nNONE: Player experience will be dropped as normal.\nOtherwise, will be stored in the zombie's inventory:\nSTORE_PARTIAL: The amount of experience stored will be equal to the amount of experience what would have been dropped.\nSTORE_FULL: The full amount of experience will be stored."
+}
