@@ -9,6 +9,8 @@ Tired of your items burning in lava or despawning when you die? **CYS — Cure Y
 
 > Download on [CurseForge](https://www.curseforge.com/minecraft/mc-mods/cys-cure-your-self)
 
+> Download on [Modrinth](https://modrinth.com/mod/cys-cure-your-self)
+
 ---
 
 ## How It Works
