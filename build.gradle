@@ -17,3 +17,17 @@ registrationUtils {
         common { type 'common' } // The common project
     }
 }
+
+tasks.register("gen-releases") {
+    dependsOn(":neoforge:assemble", ":fabric:assemble")
+
+    doLast {
+        copy {
+            from "$projectDir/neoforge/build/libs", "$projectDir/fabric/build/libs"
+            include "*.jar"
+            exclude "*-javadoc.jar"
+            exclude "*-sources.jar"
+            into "$projectDir/releases"
+        }
+    }
+}

@@ -3,6 +3,17 @@ plugins {
     id 'net.fabricmc.fabric-loom'
 }
 
+repositories {
+    maven {
+        name = "TerraformersMC"
+        url = "https://maven.terraformersmc.com/"
+    }
+    maven {
+        name = "Ladysnake Libs"
+        url = 'https://maven.ladysnake.org/releases'
+    }
+}
+
 dependencies {
     minecraft "com.mojang:minecraft:${minecraft_version}"
     implementation "net.fabricmc:fabric-loader:${fabric_loader_version}"
@@ -14,8 +25,10 @@ dependencies {
 loom {
     def aw = project(':common').file("src/main/resources/${mod_id}.accesswidener")
     if (aw.exists()) {
-        accessWidenerPath.set(aw)
+        accessWidenerPath = aw
     }
+    enableTransitiveAccessWideners = true
+
     runs {
         client {
             client()

@@ -1,6 +1,7 @@
 package io.github.marios_andr.cys;
 
 import com.mojang.serialization.Codec;
+import io.github.marios_andr.cys.platform.Services;
 import net.minecraft.client.entity.ClientMannequin;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.UUIDUtil;
@@ -98,8 +99,12 @@ public class ZombifiedPlayer extends Zombie { //  Compatibility with inventory e
 
         Inventory inv = player.getInventory();
         for (int i = 0; i < inv.getContainerSize(); i++) {
+            if (inv.getItem(i).isEmpty()) continue;
             this.inventory.add(inv.getItem(i));
         }
+
+        NonNullList<ItemStack> curio = Services.PLATFORM.getPlayerCurio(player);
+        this.inventory.addAll(curio);
 
         switch (Constants.zombieExperienceOptions) {
             case STORE_FULL ->

@@ -3,6 +3,24 @@ plugins {
     id 'net.neoforged.moddev'
 }
 
+//repositories {
+//    maven {
+//        name = "Illusive Soulworks maven"
+//        url = "https://maven.theillusivec4.top/"
+//    }
+//}
+//
+//dependencies {
+//    // Compile against only the API artifact
+//    compileOnly "top.theillusivec4.curios:curios-neoforge:${curios_version}:api"
+//    // Use the full Curios jar in dev runs
+//    runtimeOnly "top.theillusivec4.curios:curios-neoforge:${curios_version}"
+//}
+
+dependencies {
+    //implementation "curse.maven:curios-309927:7925547"
+}
+
 neoForge {
     version = neoforge_version
     // Automatically enable neoforge AccessTransformers if the file exists

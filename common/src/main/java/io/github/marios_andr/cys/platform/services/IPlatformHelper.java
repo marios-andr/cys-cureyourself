@@ -1,5 +1,10 @@
 package io.github.marios_andr.cys.platform.services;
 
+import net.minecraft.core.NonNullList;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+
 public interface IPlatformHelper {
 
     /**
@@ -30,7 +35,10 @@ public interface IPlatformHelper {
      * @return The name of the environment type.
      */
     default String getEnvironmentName() {
-
         return isDevelopmentEnvironment() ? "development" : "production";
+    }
+
+    default NonNullList<ItemStack> getPlayerCurio(Player player) {
+        return NonNullList.create();
     }
 }
